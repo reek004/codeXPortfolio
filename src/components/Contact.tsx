@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Mail, Phone, MapPin, Clock } from 'lucide-react'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -78,25 +79,25 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: '📧',
+      icon: <Mail size={20} />,
       title: 'Email',
       value: 'swarnabhawork@gmail.com',
       description: 'Send us your project details'
     },
     {
-      icon: '📞',
+      icon: <Phone size={20} />,
       title: 'Phone',
       value: '+91 7003017293',
       description: 'Available 24/7 for urgent inquiries'
     },
     {
-      icon: '📍',
+      icon: <MapPin size={20} />,
       title: 'Location',
       value: 'Kolkata, West Bengal',
       description: 'Global headquarters & R&D center'
     },
     {
-      icon: '⏰',
+      icon: <Clock size={20} />,
       title: 'Response Time',
       value: '< 4 hours',
       description: 'Typical response for new inquiries'
@@ -104,13 +105,23 @@ const Contact = () => {
   ]
 
   const projectTypes = [
+    'Web Development',
+    'Mobile App Development',
+    'AI/ML Solutions',
+    'Finance & FinTech',
+    'E-commerce Platform',
+    'SaaS Development',
+    'API Development',
+    'Database Solutions',
+    'Cloud Infrastructure',
+    'DevOps & Automation',
+    'Blockchain Development',
+    'Data Analytics',
+    'CRM Systems',
+    'ERP Solutions',
     'IoT Development',
-    'AI/ML Integration',
-    'Quantum Computing',
-    'Medical Devices',
-    'Automotive Systems',
-    'Telecommunications',
-    'Custom Solutions',
+    'Cybersecurity',
+    'Custom Software',
     'Consultation'
   ]
 
@@ -505,10 +516,18 @@ const Contact = () => {
                       }}
                     >
                       <div style={{ 
-                        fontSize: '2.5rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         minWidth: '3rem',
-                        textAlign: 'center'
-                      }}>{info.icon}</div>
+                        minHeight: '3rem',
+                        background: 'linear-gradient(135deg, #8b5cf6, #3b82f6)',
+                        borderRadius: '12px',
+                        color: '#ffffff',
+                        boxShadow: '0 4px 12px rgba(139, 92, 246, 0.3)'
+                      }}>
+                        {React.cloneElement(info.icon, { size: 24 })}
+                      </div>
                       <div>
                         <h4 style={{
                           fontWeight: '700',
@@ -572,56 +591,6 @@ const Contact = () => {
                         fontWeight: '500'
                       }}>{item}</span>
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Social Links */}
-              <div>
-                <h4 style={{
-                  fontSize: '1.5rem',
-                  fontWeight: 'bold',
-                  color: '#ffffff',
-                  marginBottom: '1.5rem'
-                }}>Follow Us</h4>
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                  {[
-                    { name: 'LinkedIn', icon: '💼', link: '#' },
-                    { name: 'Twitter', icon: '🐦', link: '#' },
-                    { name: 'GitHub', icon: '💻', link: '#' },
-                    { name: 'YouTube', icon: '📹', link: '#' }
-                  ].map((social) => (
-                    <a
-                      key={social.name}
-                      href={social.link}
-                      style={{
-                        width: '3.5rem',
-                        height: '3.5rem',
-                        background: 'rgba(255, 255, 255, 0.12)',
-                        backdropFilter: 'blur(20px)',
-                        borderRadius: '12px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        transition: 'all 0.3s ease',
-                        textDecoration: 'none',
-                        border: '1px solid rgba(255, 255, 255, 0.15)',
-                        boxShadow: '0 5px 15px rgba(0, 0, 0, 0.2)'
-                      }}
-                      title={social.name}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = 'rgba(139, 92, 246, 0.3)'
-                        e.currentTarget.style.transform = 'scale(1.1) translateY(-2px)'
-                        e.currentTarget.style.boxShadow = '0 10px 25px rgba(139, 92, 246, 0.4)'
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = 'rgba(255, 255, 255, 0.12)'
-                        e.currentTarget.style.transform = 'scale(1) translateY(0)'
-                        e.currentTarget.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)'
-                      }}
-                    >
-                      <span style={{ fontSize: '1.5rem' }}>{social.icon}</span>
-                    </a>
                   ))}
                 </div>
               </div>
