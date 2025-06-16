@@ -71,13 +71,6 @@ const Navbar = () => {
     backgroundClip: 'text'
   }
 
-  const desktopNavStyle = {
-    display: 'none',
-    '@media (min-width: 768px)': {
-      display: 'flex'
-    }
-  }
-
   const navButtonStyle = {
     color: '#d1d5db',
     padding: '0.5rem 0.75rem',

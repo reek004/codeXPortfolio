@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('all')
@@ -284,9 +285,11 @@ export default function Projects() {
                 position: 'relative',
                 overflow: 'hidden'
               }}>
-                <img 
+                <Image 
                   src={project.image} 
                   alt={project.title}
+                  width={400}
+                  height={200}
                   style={{
                     width: '100%',
                     height: '100%',

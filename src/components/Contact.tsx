@@ -52,12 +52,23 @@ const Contact = () => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000))
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', company: '', project: '', message: '' })
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      })
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', company: '', project: '', message: '' })
+      } else {
+        setSubmitStatus('error')
+      }
     } catch (error) {
+      console.error('Error submitting form:', error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -69,13 +80,13 @@ const Contact = () => {
     {
       icon: '📧',
       title: 'Email',
-      value: 'contact@codex.com',
+      value: 'swarnabhawork@gmail.com',
       description: 'Send us your project details'
     },
     {
       icon: '📞',
       title: 'Phone',
-      value: '+91 (033) 2345-6789',
+      value: '+91 7003017293',
       description: 'Available 24/7 for urgent inquiries'
     },
     {
@@ -141,16 +152,6 @@ const Contact = () => {
     maxWidth: '700px',
     margin: '0 auto',
     lineHeight: '1.6'
-  }
-
-  const gridStyle = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))',
-    gap: '4rem',
-    '@media (max-width: 1024px)': {
-      gridTemplateColumns: '1fr',
-      gap: '3rem'
-    }
   }
 
   const formContainerStyle = {

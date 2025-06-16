@@ -222,7 +222,7 @@ const Testimonials = () => {
             <div style={{ position: 'relative', zIndex: 10 }}>
               {/* Quote */}
               <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-                <div style={{ fontSize: '2.5rem', color: '#a855f7', marginBottom: '0.5rem' }}>"</div>
+                <div style={{ fontSize: '2.5rem', color: '#a855f7', marginBottom: '0.5rem' }}>&quot;</div>
                 <p style={{
                   fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
                   color: '#ffffff',
@@ -239,7 +239,7 @@ const Testimonials = () => {
                   marginTop: '0.5rem',
                   transform: 'rotate(180deg)',
                   display: 'inline-block'
-                }}>"</div>
+                }}>&quot;</div>
               </div>
 
               {/* Rating */}

@@ -214,7 +214,7 @@ export default function About() {
           opacity: isMobile ? 1 : (isVisible ? 1 : 0),
           transform: isMobile ? 'translateY(0)' : (isVisible ? 'translateY(0)' : 'translateY(30px)')
         }} className={isMobile ? 'mobile-grid' : ''}>
-          {stats.map((stat, index) => (
+          {stats.map((stat) => (
             <div 
               key={stat.key}
               style={statCardStyle}
