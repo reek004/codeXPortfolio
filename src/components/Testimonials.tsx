@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Star } from 'lucide-react'
 
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
@@ -32,7 +33,7 @@ const Testimonials = () => {
       company: "Fengshui",
       content: "CodeX transformed our vision into a beautiful, functional platform. Their expertise in modern web technologies and attention to user experience is exceptional.",
       rating: 5,
-      avatar: "👨‍💼",
+      avatar: "/images/clients/leonlee.png",
       delay: 0,
       metrics: {
         "User Growth": "+180%",
@@ -47,7 +48,7 @@ const Testimonials = () => {
       company: "Mooner Money",
       content: "The financial platform developed by CodeX exceeded all our expectations. Their blockchain integration and security implementation is world-class.",
       rating: 5,
-      avatar: "👨‍💻",
+      avatar: "/images/clients/alexchen.png",
       delay: 0.2,
       metrics: {
         "Transactions": "+300%",
@@ -62,7 +63,7 @@ const Testimonials = () => {
       company: "WGMI NFT Marketplace",
       content: "Working with CodeX on our Web3 marketplace was transformative. Their deep understanding of blockchain technology enabled breakthrough user experiences.",
       rating: 5,
-      avatar: "👩‍💻",
+      avatar: "/images/clients/sarahkim.png",
       delay: 0.4,
       metrics: {
         "Volume": "$5M+",
@@ -77,7 +78,7 @@ const Testimonials = () => {
       company: "DeFi Capital",
       content: "CodeX's DeFi solutions have revolutionized our trading platform. Their smart contract development and frontend integration is absolutely outstanding.",
       rating: 5,
-      avatar: "👨‍🔧",
+      avatar: "/images/clients/marcus.png",
       delay: 0.6,
       metrics: {
         "TVL": "$12M+",
@@ -92,7 +93,7 @@ const Testimonials = () => {
       company: "MetaVerse Studios",
       content: "The Web3 gaming platform from CodeX has enabled us to achieve unprecedented player engagement. Truly next-generation blockchain gaming technology.",
       rating: 5,
-      avatar: "👩‍🎮",
+      avatar: "/images/clients/img.png",
       delay: 0.8,
       metrics: {
         "Players": "+500%",
@@ -112,15 +113,12 @@ const Testimonials = () => {
 
   const renderStars = (rating: number) => {
     return [...Array(5)].map((_, i) => (
-      <span
+      <Star
         key={i}
-        style={{
-          fontSize: '1.5rem',
-          color: i < rating ? '#fbbf24' : '#4b5563'
-        }}
-      >
-        ⭐
-      </span>
+        size={20}
+        fill={i < rating ? '#fbbf24' : 'transparent'}
+        color={i < rating ? '#fbbf24' : '#4b5563'}
+      />
     ))
   }
 
@@ -247,17 +245,30 @@ const Testimonials = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 marginBottom: '1.5rem',
-                gap: '0.125rem'
+                gap: '0.25rem'
               }}>
-                {renderStars(testimonials[currentTestimonial].rating).map((star, index) => (
-                  <span key={index} style={{ fontSize: '1.2rem', color: '#fbbf24' }}>⭐</span>
-                ))}
+                {renderStars(testimonials[currentTestimonial].rating)}
               </div>
 
               {/* Client Info */}
               <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-                <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>
-                  {testimonials[currentTestimonial].avatar}
+                <div style={{ 
+                  marginBottom: '1rem',
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}>
+                  <img 
+                    src={testimonials[currentTestimonial].avatar}
+                    alt={testimonials[currentTestimonial].name}
+                    style={{
+                      width: '80px',
+                      height: '80px',
+                      borderRadius: '50%',
+                      objectFit: 'cover',
+                      border: '3px solid rgba(139, 92, 246, 0.3)',
+                      boxShadow: '0 4px 15px rgba(139, 92, 246, 0.2)'
+                    }}
+                  />
                 </div>
                 <h4 style={{
                   fontSize: '1.2rem',

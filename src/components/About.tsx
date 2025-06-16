@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
+import { Monitor, Zap, Shield, Globe } from 'lucide-react'
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false)
@@ -153,27 +154,28 @@ export default function About() {
     border: '1px solid rgba(255, 255, 255, 0.1)',
     transition: 'all 0.3s ease',
     transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-    opacity: isVisible ? 1 : 0
+    opacity: isVisible ? 1 : 0,
+    textAlign: 'center' as const
   }
 
   const features = [
     {
-      icon: '💻',
+      icon: Monitor,
       title: 'Full-Stack Development',
       description: 'Building comprehensive web and mobile applications with modern technologies and best practices.'
     },
     {
-      icon: '🚀',
+      icon: Zap,
       title: 'High Performance',
       description: 'Delivering fast, scalable, and efficient software solutions that exceed client expectations.'
     },
     {
-      icon: '🛡️',
+      icon: Shield,
       title: 'Quality Assurance',
       description: 'Rigorous testing and code review processes ensuring the highest reliability and performance standards.'
     },
     {
-      icon: '🌍',
+      icon: Globe,
       title: 'Global Impact',
       description: 'Empowering businesses worldwide with innovative software solutions that drive digital transformation.'
     }
@@ -266,35 +268,40 @@ export default function About() {
 
         {/* Features Grid */}
         <div style={featuresGridStyle}>
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              style={{
-                ...featureCardStyle,
-                transitionDelay: `${0.7 + index * 0.1}s`
-              }}
-              className="card"
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-5px) scale(1.02)'
-                e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.3)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)'
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'
-              }}
-            >
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>{feature.icon}</div>
-              <h4 style={{ 
-                fontSize: '1.3rem', 
-                fontWeight: 'bold', 
-                color: '#ffffff', 
-                marginBottom: '1rem' 
-              }}>
-                {feature.title}
-              </h4>
-              <p style={{ color: '#cbd5e1', lineHeight: '1.5' }}>{feature.description}</p>
-            </div>
-          ))}
+          {features.map((feature, index) => {
+            const IconComponent = feature.icon
+            return (
+              <div
+                key={index}
+                style={{
+                  ...featureCardStyle,
+                  transitionDelay: `${0.7 + index * 0.1}s`
+                }}
+                className="card"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-5px) scale(1.02)'
+                  e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.3)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'
+                }}
+              >
+                <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
+                  <IconComponent size={48} color="#ffffff" />
+                </div>
+                <h4 style={{ 
+                  fontSize: '1.3rem', 
+                  fontWeight: 'bold', 
+                  color: '#ffffff', 
+                  marginBottom: '1rem' 
+                }}>
+                  {feature.title}
+                </h4>
+                <p style={{ color: '#cbd5e1', lineHeight: '1.5' }}>{feature.description}</p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

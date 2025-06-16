@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { Globe, DollarSign, Code, Rocket } from 'lucide-react'
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -133,25 +134,33 @@ export default function Hero() {
 
           <div style={cardContainerStyle}>
             <div style={cardStyle} className="card float-animation">
-              <div style={{ fontSize: isMobile ? '2rem' : '2.5rem', marginBottom: '1rem' }}>🌐</div>
+              <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
+                <Globe size={isMobile ? 32 : 40} color="#ffffff" />
+              </div>
               <h3 style={{ color: '#6366f1', marginBottom: '0.5rem', fontSize: isMobile ? '1rem' : '1.2rem', fontWeight: '600' }}>Web3</h3>
               <p style={{ color: '#cbd5e1', fontSize: isMobile ? '0.85rem' : '0.9rem' }}>Blockchain & DApps</p>
             </div>
             
             <div style={{ ...cardStyle, animationDelay: '0.2s' }} className="card float-animation">
-              <div style={{ fontSize: isMobile ? '2rem' : '2.5rem', marginBottom: '1rem' }}>💰</div>
+              <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
+                <DollarSign size={isMobile ? 32 : 40} color="#ffffff" />
+              </div>
               <h3 style={{ color: '#8b5cf6', marginBottom: '0.5rem', fontSize: isMobile ? '1rem' : '1.2rem', fontWeight: '600' }}>FinTech</h3>
               <p style={{ color: '#cbd5e1', fontSize: isMobile ? '0.85rem' : '0.9rem' }}>Digital Payment Solutions</p>
             </div>
             
             <div style={{ ...cardStyle, animationDelay: '0.4s' }} className="card float-animation">
-              <div style={{ fontSize: isMobile ? '2rem' : '2.5rem', marginBottom: '1rem' }}>💻</div>
+              <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
+                <Code size={isMobile ? 32 : 40} color="#ffffff" />
+              </div>
               <h3 style={{ color: '#a855f7', marginBottom: '0.5rem', fontSize: isMobile ? '1rem' : '1.2rem', fontWeight: '600' }}>Software</h3>
               <p style={{ color: '#cbd5e1', fontSize: isMobile ? '0.85rem' : '0.9rem' }}>Custom Applications</p>
             </div>
             
             <div style={{ ...cardStyle, animationDelay: '0.6s' }} className="card float-animation">
-              <div style={{ fontSize: isMobile ? '2rem' : '2.5rem', marginBottom: '1rem' }}>🚀</div>
+              <div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
+                <Rocket size={isMobile ? 32 : 40} color="#ffffff" />
+              </div>
               <h3 style={{ color: '#c084fc', marginBottom: '0.5rem', fontSize: isMobile ? '1rem' : '1.2rem', fontWeight: '600' }}>Startup</h3>
               <p style={{ color: '#cbd5e1', fontSize: isMobile ? '0.85rem' : '0.9rem' }}>MVP Development</p>
             </div>
