@@ -550,8 +550,8 @@ const Contact = () => {
                 }}>Why Choose CodeX?</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   {[
-                    '15+ years of industry expertise',
-                    '250+ successful projects delivered',
+                    '2+ years of industry expertise',
+                    '12+ successful projects delivered',
                     '24/7 technical support',
                     'IP protection guaranteed'
                   ].map((item, index) => (
